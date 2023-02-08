@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: flex;
+}
+
+.command-container{
+    padding: 1rem;
+    flex-grow: 1;    
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.country-table{
+    border-collapse: collapse;
+}
+
+.population-count {
+    border: 3px solid rgb(44, 117, 4);
+    margin-top: 1rem;
+    text-align: center;
+    padding: .5rem;
+    background-color: #e6ffbe;
+}
+
+.population-number {
+font-size: 2rem;
+color: #f9214a;
+padding: 1rem;
+}
+
+
+.btn{
+    padding: .5rem;
+    color: white;
+    border-radius: 4px;
+    background-color: cornflowerblue;
+    transition: .3s all ease-in;
+    margin-bottom: 1rem;
+}
+
+.btn:hover{
+    background-color: rgb(21,116,211);
+}
+
+.btn-alter{
+    background-color: #222;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    background-color: rgb(37, 160, 28);
+    color: white;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #e6ffbe;
+}

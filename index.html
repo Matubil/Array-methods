@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos de Arrays</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Metodos de Arrays</h1>
+
+    <div class="container">
+        <section class="command-container">
+            Metodos
+            <div>
+                <button class="btn" onclick="metodoMap()">Metodo Map</button>
+            </div>
+            <div>
+                <label for="filter">Filtrar (Filter)</label>
+                <input type="text" id="filter" onkeyup="metodoFilter(event)"><!--le mando el valor value para despues en la funcion recibir solo una variable y no todo el evento -->
+                <!-- <button class="btn" onclick="metodoFilter()">Filtrar Paises</button> -->
+            </div>
+            <div>
+                <label for="find">Busca (Find)</label>
+                <input type="text" id="find" onkeyup="metodoFind(event)">
+            </div>
+            <div>
+                <!-- para seleccionar varias lineas ctrl + alt 
+                windows+. pones emojis-->
+                <button class="btn btn-alter" onclick="ordernarPor()">Nombre🔽</button>
+                <button class="btn btn-alter" onclick=""></button>
+                <button class="btn btn-alter" onclick=""></button>
+                <button class="btn btn-alter" onclick=""></button>
+            </div>
+            <div>
+                <label for="findId">Buscar Indice (Find Index and splice)</label>
+                <input type="text" id="findId" onkeyup="metodoFindIndex(event)">
+            </div>
+        </section>
+        <section class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Pais</th>
+                        <th>Poblacion</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+            <div class="population-count">
+                <p>Total de la poblacion</p>
+                <h1 class="population-number" id="population-number">
+                    --
+                </h1>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="/js/array-methods-lista-objetos.js"></script>
+</body>
+</html>
