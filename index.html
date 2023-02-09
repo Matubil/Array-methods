@@ -29,10 +29,14 @@
             <div>
                 <!-- para seleccionar varias lineas ctrl + alt 
                 windows+. pones emojis-->
-                <button class="btn btn-alter" onclick="ordernarPor()">Nombre🔽</button>
-                <button class="btn btn-alter" onclick=""></button>
-                <button class="btn btn-alter" onclick=""></button>
-                <button class="btn btn-alter" onclick=""></button>
+                <!-- <button class="btn btn-alter" onclick="ordenarPorDescendente()">Nombre🔽</button>
+                <button class="btn btn-alter" onclick="ordenarPorAscendente()">Nombre🔼</button>
+                <button class="btn btn-alter" onclick="ordenarPorDescendentePoblacion()">Poblacion🔽</button>
+                <button class="btn btn-alter" onclick="ordenarPorAscendentePoblacion()">Poblacion🔼</button> -->
+                <button class="btn btn-alter" onclick="ordenarPor('name', 'desc')">Nombre🔽</button>
+                <button class="btn btn-alter" onclick="ordenarPor('name', 'asc')">Nombre🔼</button>
+                <button class="btn btn-alter" onclick="ordenarPor('population', 'desc')">Poblacion🔽</button>
+                <button class="btn btn-alter" onclick="ordenarPor('population', 'asc')">Poblacion🔼</button>
             </div>
             <div>
                 <label for="findId">Buscar Indice (Find Index and splice)</label>

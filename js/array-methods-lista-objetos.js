@@ -47,7 +47,6 @@ function calcularTotalPoblacion(paisesAContar){
 
         //sino usando una sola linea seria return acumulador += pais.population
 
-        //TODO mirar el video 10 minutos despues a lo de abajo para ver como escribirlo asi en una linea
         // se puede escribir toda la funcion asi const sumaTotal = paisesAContar.reduce(acumulador, pais)=> acumulador += pais.population
     }, 0) 
     //al final de la funcion necesita ponerse una "," y un valor, que va a ir el valor con el que quiero que inicie el acumulador)
@@ -140,30 +139,89 @@ function metodoFindIndex(evt){
 
 }
 
-const ordenarPor = () => { //lo malo de definir asi a la funcion, es que si lo queremos llamar antes no vamos a poder llamarlo porque recien se está declarando ahora 
-    paisesLatam.sort((a,b)=>{ //de esta forma lo ordenaria manera ascendente
-        if(a>b){
+
+const ordenarPorAscendente = () => { 
+    paisesLatam.sort((a,b)=>{
+        if(a.name < b.name){
             return -1
         }
-        if(a<b){
+        if(a.name > b.name){
             return 1
         }
         return 0
     })
 
+    pintarTable(paisesLatam)
 }
 
-
-const ordenarPorDescendente = () => { 
-    paisesLatam.sort((a,b)=>{
-        if(a<b){
+const ordenarPorDescendente = () => { //lo malo de definir asi a la funcion, es que si lo queremos llamar antes no vamos a poder llamarlo porque recien se está declarando ahora 
+    paisesLatam.sort((a,b)=>{ //de esta forma lo ordenaria manera ascendente
+        if(a.name > b.name){
             return -1
         }
-        if(a>b){
+        if(a.name < b.name){
             return 1
         }
         return 0
     })
 
-    //TODO mirar los ultimos 15 minutos
+    pintarTable(paisesLatam) 
+}
+
+const ordenarPorAscendentePoblacion = () => { 
+    paisesLatam.sort((a,b)=>{
+        if(a.population < b.population){
+            return -1
+        }
+        if(a.population > b.population){
+            return 1
+        }
+        return 0
+    })
+
+    pintarTable(paisesLatam)
+}
+
+const ordenarPorDescendentePoblacion = () => { 
+    paisesLatam.sort((a,b)=>{ 
+        if(a.population > b.population){
+            return -1
+        }
+        if(a.population < b.population){
+            return 1
+        }
+        return 0
+    })
+
+    pintarTable(paisesLatam) 
+}
+
+function ordenarPor(prop, order){//prop va a ser en base a que va a buscar
+    // if( order === 'asc'){
+    //     value = 1;
+    // }
+    // else{//si es desc
+    //     value = -1
+    // } 
+
+    // value = order === 'asc' ? verdadero : false //operador ternario
+
+    //  order === 'asc' ? value = 1 : value = -1 //otra forma de preguntar el if anterior
+
+    value = order === 'asc' ? 1 : -1    //otra forma mejor de aplicar el if anterior
+
+    //value = order === 'asc' ? 1 : order === 'desc' ? -1 : null
+    //eso es como poner if{}else if{}else{}
+
+    paisesLatam.sort((a,b)=>{ 
+        if(a[prop] > b[prop]){//hay 2 formas de acceder a un valor del objeto una es a.prop y otra seria a['prop']
+            return value
+        }
+        if(a[prop] < b[prop]){
+            return -value
+        }
+        return 0
+    })
+
+    pintarTable(paisesLatam)  //recordar pintar la tabla
 }
