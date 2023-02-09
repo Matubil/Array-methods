@@ -215,6 +215,7 @@ function ordenarPor(prop, order){//prop va a ser en base a que va a buscar
 
     paisesLatam.sort((a,b)=>{ 
         if(a[prop] > b[prop]){//hay 2 formas de acceder a un valor del objeto una es a.prop y otra seria a['prop']
+            //cuando necesito acceder dinámicamente mediante una varibale a las propiedades de un objeto utilizo el acceso al valor de las propiedades mediante índice nombrado objeto['propiedad']
             return value
         }
         if(a[prop] < b[prop]){
@@ -225,3 +226,5 @@ function ordenarPor(prop, order){//prop va a ser en base a que va a buscar
 
     pintarTable(paisesLatam)  //recordar pintar la tabla
 }
+
+//TODO: Ver la clase a partir de la 1:20 maso
