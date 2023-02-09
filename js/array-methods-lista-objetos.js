@@ -50,8 +50,7 @@ function calcularTotalPoblacion(paisesAContar){
         //TODO mirar el video 10 minutos despues a lo de abajo para ver como escribirlo asi en una linea
         // se puede escribir toda la funcion asi const sumaTotal = paisesAContar.reduce(acumulador, pais)=> acumulador += pais.population
     }, 0) 
-    //TODO ver en 2 - 2:10 a que hace referencia el valor que va ahi atras
-    //al final de la funcion necesita ponerse una, y un valor, que va a ir el valor con el que quiero que inicie el acumulador)
+    //al final de la funcion necesita ponerse una "," y un valor, que va a ir el valor con el que quiero que inicie el acumulador)
 
     console.log(`sumatoriaTotal:`, sumaTotal)
     
@@ -63,17 +62,14 @@ function metodoMap(){
     // tableBody.innerHTML = ''
     const arrayNuevoMap = paisesLatam.map(function(pais){
         
-        
-    // TODO mirar video a las 1:15 que declara el objeto que esta comentado debajo
-    // const  newObj{
-    //     name: pais.name.toUpperCase(),
-
-    // }
-
-        pais.name = pais.name.toUpperCase();
-        pais.population = Math.round(pais.population *10 / 1000000)/10 + ('M') //se lo multiplica y dividide por 10 para que una vez que redondee y ahi va a quedar por ejemplo 561 y si quiero dejarme los decimales le ponemos /10 entonces va a quedar 56.1
+        const  newObj = {   //se declara este objeto para no modificar la lista que ya teniamos, asi solo modificamos el objeto que le asignamos el valor de los objetos de la lista 
+            name: pais.name.toUpperCase(),
+            population: Math.round(pais.population *10 / 1000000)/10 + ('M')//se lo multiplica y dividide por 10 para que una vez que redondee y ahi va a quedar por ejemplo 561 y si quiero dejarme los decimales le ponemos /10 entonces va a quedar 56.1
+        }
+        // pais.name = pais.name.toUpperCase();
+        // pais.population = Math.round(pais.population *10 / 1000000)/10 + ('M') //se lo multiplica y dividide por 10 para que una vez que redondee y ahi va a quedar por ejemplo 561 y si quiero dejarme los decimales le ponemos /10 entonces va a quedar 56.1
         // const paisMay = pais.name.toUpperCase();
-        return pais
+        return newObj
     })
 
     pintarTable(arrayNuevoMap)
@@ -144,12 +140,26 @@ function metodoFindIndex(evt){
 
 }
 
-const ordenarPor = () => {
-    paisesLatam.sort((a,b)=>{
+const ordenarPor = () => { //lo malo de definir asi a la funcion, es que si lo queremos llamar antes no vamos a poder llamarlo porque recien se está declarando ahora 
+    paisesLatam.sort((a,b)=>{ //de esta forma lo ordenaria manera ascendente
         if(a>b){
             return -1
         }
         if(a<b){
+            return 1
+        }
+        return 0
+    })
+
+}
+
+
+const ordenarPorDescendente = () => { 
+    paisesLatam.sort((a,b)=>{
+        if(a<b){
+            return -1
+        }
+        if(a>b){
             return 1
         }
         return 0
