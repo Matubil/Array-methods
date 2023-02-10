@@ -83,9 +83,12 @@ function metodoFilter(evt){
     }
     
     const text =  evt.target.value.toLowerCase();
+    //const number = 1000000 tambien se podria hacer de traer un elemento con un input
 
     const paisesFiltrados = paisesLatam.filter((pais) =>{
         const filtra = pais.name.toLowerCase().includes(text)
+        //const filtrados = pais.population > number
+        //return filtrados y ahi funciona, es otra forma de filtrar
         return filtra;
     })
 
@@ -196,6 +199,8 @@ const ordenarPorDescendentePoblacion = () => {
     pintarTable(paisesLatam) 
 }
 
+
+//esta funcion va a funcionar por las 4 anteriores de ordenamiento , se le llama hacer un refactor
 function ordenarPor(prop, order){//prop va a ser en base a que va a buscar
     // if( order === 'asc'){
     //     value = 1;
@@ -215,7 +220,7 @@ function ordenarPor(prop, order){//prop va a ser en base a que va a buscar
 
     paisesLatam.sort((a,b)=>{ 
         if(a[prop] > b[prop]){//hay 2 formas de acceder a un valor del objeto una es a.prop y otra seria a['prop']
-            //cuando necesito acceder dinámicamente mediante una varibale a las propiedades de un objeto utilizo el acceso al valor de las propiedades mediante índice nombrado objeto['propiedad']
+            //cuando necesito acceder dinámicamente mediante una variable a las propiedades de un objeto utilizo el acceso al valor de las propiedades mediante índice nombrado objeto['propiedad'], ya cuando quiero acceder a un campo del objeto seria a.campo del objeto
             return value
         }
         if(a[prop] < b[prop]){
@@ -227,4 +232,15 @@ function ordenarPor(prop, order){//prop va a ser en base a que va a buscar
     pintarTable(paisesLatam)  //recordar pintar la tabla
 }
 
-//TODO: Ver la clase a partir de la 1:20 maso
+/*METODO CONCAT
+si coloco array1.concat(array2) lo que hace es juntar todos los elementos de los array, osea pone primero los elementos del array1 y despues pone los elementos del array2 dentro del array1*/
+/*
+
+METODO FILL
+    let arrayFill = [0,1,2,3,4,5,6,7]
+    arrayFill.fil('valorFill', 3, 6), lo que hace es llenar desde el indice 3 hasta por ejemlpo si se quiere todos los demas, no se le pone nada y si se quiere un limite  que por ejemplo este seria hasta el 6, osea [0, 1, 2, 'valorFill', 'valorFill', 'valorFill', 6, 7]
+*/
+
+for(let pais of paisesLatam){   
+    console.log(`For OF:`, pais)
+}
